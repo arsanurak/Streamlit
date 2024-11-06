@@ -1,0 +1,18 @@
+[phases.setup]
+apt_pkgs = ["python3", "python3-pip"]
+
+[phases.install]
+# Install dependencies from requirements.txt
+cmds = ["pip3 install -r requirements.txt"]
+
+[phases.build]
+# Build phase is not necessary for Streamlit, so we leave it blank
+
+[phases.start]
+# Run the Streamlit app on port 8501
+cmd = "streamlit run main.py --server.port 8501 --server.address 0.0.0.0"
+
+[services]
+  [[services.ports]]
+  port = 8501
+  protocol = "http"
